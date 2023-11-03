@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const NavItem = ({ navItem }: { navItem: T_NavItem }) => {
   return (
-    <div className="w-full h-4">
+    <div className="flex items-center px-4 h-4 text-xl">
       <Link href={navItem.href}>{navItem.title}</Link>
     </div>
   );

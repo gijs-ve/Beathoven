@@ -26,6 +26,10 @@ export default function RootLayout({
       title: "Play",
       href: "/play",
     },
+    {
+      title: "Settings",
+      href: "/settings",
+    },
   ];
   return (
     <html lang="en">

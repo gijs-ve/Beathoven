@@ -1,3 +1,4 @@
+import { Logo } from "@/components/Logo/Logo";
 import { Navbar } from "@/components/Navbar/Navbar";
 import { T_NavItem } from "@/types";
 import type { Metadata } from "next";
@@ -34,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Logo />
         <Navbar navItems={navItems} />
         {children}
       </body>

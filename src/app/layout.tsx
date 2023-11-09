@@ -36,9 +36,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Logo />
-
         <Navbar navItems={navItems} />
-        {children}
+        <main className="flex min-h-screen flex-col items-center justify-between p-24 w-full bg-gray-800">
+          <div className="bg-blueish-700 w-[90%] px-[10%] py-[5%] rounded-xl border-2 border-blueish-800">
+            {children}
+          </div>
+        </main>
       </body>
     </html>
   );

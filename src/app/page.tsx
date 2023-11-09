@@ -1,7 +1,6 @@
 export default function Home() {
   return (
     <h1 className="my-8">
-      {" "}
       Vrbem Romam a principio reges habuere; libertatem et consulatum L. Brutus
       instituit. dictaturae ad tempus sumebantur; neque decemviralis potestas
       ultra biennium, neque tribunorum militum consulare ius diu valuit. non

@@ -1,5 +1,3 @@
-import ChatBox from "@/components/Chatbox/Chatbox";
-
 export default function Home() {
   return (
     <>
@@ -18,7 +16,6 @@ export default function Home() {
         de Augusto et extrema tradere, mox Tiberii principatum et cetera, sine
         ira et studio, quorum causas procul habeo.
       </h1>
-      <ChatBox />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import ChatBox from "@/components/Chatbox/Chatbox";
 import { Logo } from "@/components/Logo/Logo";
 import { Navbar } from "@/components/Navbar/Navbar";
 import { T_NavItem } from "@/types";
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Logo />
         <Navbar navItems={navItems} />
+        <ChatBox />
         <main className="flex min-h-screen flex-col items-center justify-between p-24 w-full bg-gray-800">
           <div className="bg-blueish-700 w-[90%] px-[10%] py-[5%] rounded-xl border-2 border-blueish-800">
             {children}

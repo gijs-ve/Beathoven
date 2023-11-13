@@ -24,7 +24,7 @@ const ChatBox = () => {
   };
 
   return (
-    <div>
+    <div className="absolute bottom-0 right-0 bg-blueish-700 p-8 border-blueish-800 border-2 rounded-tl-xl">
       <div>
         {messages.map((msg, index) => (
           <Message key={index} message={msg} />

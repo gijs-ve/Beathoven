@@ -13,7 +13,7 @@ const Message: React.FC<MessageProps> = ({
   const seconds = getSeconds(time);
   return (
     <div>
-      <p>{` ${hours}:${minutes}:${seconds} ${sender}: ${text}`}</p>
+      <p>{`${hours}:${minutes}:${seconds} ${sender}: ${text}`}</p>
     </div>
   );
 };

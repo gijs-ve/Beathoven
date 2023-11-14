@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+import appStateReducer from "./appState/slice";
 import chatboxStateReducer from "./chatboxState/slice";
 
 const store = configureStore({
   reducer: {
+    appState: appStateReducer,
     chatboxState: chatboxStateReducer,
   },
 });

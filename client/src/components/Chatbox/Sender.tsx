@@ -14,18 +14,23 @@ const Sender: React.FC<SenderProps> = ({ addMessage }) => {
       addMessage(inputMessage);
       setInputMessage("");
     }
-    socket.emit("sendMessage", inputMessage)
+    socket.emit("sendMessage", inputMessage);
   };
 
   return (
-    <div>
+    <>
       <input
+        className="w-full p-4 text-black my-8"
         type="text"
         value={inputMessage}
         onChange={(e) => setInputMessage(e.target.value)}
       />
-      <button onClick={sendMessage}>Send</button>
-    </div>
+      <div className="flex justify-end">
+        <button className="bg-blueish-500 p-4 rounded-xl" onClick={sendMessage}>
+          Send
+        </button>
+      </div>
+    </>
   );
 };
 

@@ -9,7 +9,10 @@ export const SocketReceiver = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     socket.on("addMessage", (message: T_Message) => {
+      const newestMessage = document.getElementById("chatbox-newest");
       dispatch(addMessage(message));
+      console.log({ newestMessage });
+      newestMessage?.scrollIntoView();
     });
     return () => {
       socket.removeAllListeners();

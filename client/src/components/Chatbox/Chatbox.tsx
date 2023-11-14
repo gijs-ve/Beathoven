@@ -6,6 +6,7 @@ import { toggleChatboxOpen } from "@/store/appState";
 import classNames from "classnames";
 import { T_Message } from "../../../../types";
 import Message from "./Message";
+import { ScrollBottom } from "./ScrollBottom";
 import Sender from "./Sender";
 
 interface MessageItem {
@@ -33,18 +34,31 @@ const ChatBox = () => {
   return (
     <>
       <div
-        className="absolute bottom-0 right-0 h-8 w-8 bg-blueish-300 rounded-tl-xl cursor-pointer z-10"
+        className="absolute bottom-0 right-0 h-8 w-8 bg-blueish-300 rounded-tl-xl cursor-pointer z-10 "
         onClick={() => dispatch(toggleChatboxOpen())}
       ></div>
       <div
+        id="chatbox-container"
         className={classNames(
-          "absolute bottom-0 right-0 bg-blueish-700 p-8 border-blueish-800 border-2 rounded-tl-xl",
+          " flex flex-col justify-end h-full absolute bottom-0 right-0 bg-blueish-700/90 p-8 border-blueish-800 border-2 rounded-tl-xl w-[25%]",
           { hidden: !chatboxOpen }
         )}
       >
-        <div>
-          {messages.map((message: T_Message, index) => {
+        <div className="overflow-y-auto">
+          {messages.map((message: T_Message, index, array) => {
             const { senderName, message: _message, time, socketId } = message;
+            if (index === array.length - 1) {
+              return (
+                <ScrollBottom
+                  key={index}
+                  message={{
+                    text: _message,
+                    sender: socketId,
+                    time,
+                  }}
+                />
+              );
+            }
             return (
               <Message
                 key={index}

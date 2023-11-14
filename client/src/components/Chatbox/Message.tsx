@@ -1,19 +1,18 @@
-import { getHours, getMinutes, getSeconds } from "date-fns";
 import React from "react";
 
-interface MessageProps {
-  message: { text: string; sender: string; time: number };
+export interface MessageProps {
+  message: { text: string; sender: string; time: string };
+  ref?: React.Ref<HTMLDivElement>;
 }
 
 const Message: React.FC<MessageProps> = ({
   message: { sender, text, time },
+  ref,
 }) => {
-  const hours = getHours(time);
-  const minutes = getMinutes(time);
-  const seconds = getSeconds(time);
   return (
-    <div>
-      <p>{`${hours}:${minutes}:${seconds} ${sender}: ${text}`}</p>
+    <div ref={ref} className="flex flex-col bg-blueish-800 p-4 m-4 rounded-xl">
+      <p className="p-2">{`${time} ${sender}`}</p>
+      <p>{text}</p>
     </div>
   );
 };

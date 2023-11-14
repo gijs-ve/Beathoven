@@ -1,3 +1,4 @@
+import { useSocket } from "@/hooks";
 import React, { useState } from "react";
 
 interface SenderProps {
@@ -5,6 +6,7 @@ interface SenderProps {
 }
 
 const Sender: React.FC<SenderProps> = ({ addMessage }) => {
+  const socket = useSocket();
   const [inputMessage, setInputMessage] = useState("");
 
   const sendMessage = () => {
@@ -12,6 +14,7 @@ const Sender: React.FC<SenderProps> = ({ addMessage }) => {
       addMessage(inputMessage);
       setInputMessage("");
     }
+    socket.emit("sendMessage", inputMessage)
   };
 
   return (

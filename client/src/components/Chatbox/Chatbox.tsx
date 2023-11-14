@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Message from "./Message";
 import Sender from "./Sender";
+import { useSocket } from "@/hooks";
 
 interface MessageItem {
   time: Date;
@@ -11,6 +12,7 @@ interface MessageItem {
 }
 
 const ChatBox = () => {
+  
   const [messages, setMessages] = useState<MessageItem[]>([]);
 
   const addMessage = (text: string) => {

@@ -1,0 +1,27 @@
+{
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "server:install": "cd server && yarn install",
+        "server:start": "cd server && NODE_ENV=development && yarn run start",
+        "server:compile": "cd server && yarn install && NODE_ENV=production && rm -rf build  && npx tsc --build && cd build/server && cp -r . .. && cd .. && rm -rf server && rm -rf globalTypes && cd .. && cp -r models build && cp package.json build",
+        "client:install": "cd client && yarn install",
+        "client:start": "cd client && NODE_ENV=development && yarn run dev",
+        "client:compile": "cd client && yarn install && NODE_ENV=production && yarn run build && cp .htaccess build",
+        "beathoven": "yarn install && concurrently \"yarn run server:install && yarn run server:start\" \"yarn run client:install && yarn run client:start\"",
+        "dev": "yarn run beathoven",
+        "client": "yarn run client:install && yarn run client:start",
+        "server": "yarn run server:install && yarn run server:start",
+        "compile": "yarn install && concurrently \"yarn run server:compile\" \"yarn run client:compile\""
+    },
+    "engines": {
+        "yarn": ">=1.22.19",
+        "node": ">=18.17.1"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.59.1",
+        "@typescript-eslint/parser": "^5.59.1",
+        "concurrently": "^8.0.1",
+        "eslint": "^8.39.0",
+        "eslint-plugin-react": "^7.32.2"
+    }
+}

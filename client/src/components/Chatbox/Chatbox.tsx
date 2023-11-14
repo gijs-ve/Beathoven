@@ -29,19 +29,14 @@ const ChatBox = () => {
     <div className="absolute bottom-0 right-0 bg-blueish-700 p-8 border-blueish-800 border-2 rounded-tl-xl">
       <div>
         {messages.map((message: T_Message, index) => {
-          const {
-            senderName,
-            message: _message,
-            date: time,
-            socketId,
-          } = message;
+          const { senderName, message: _message, time, socketId } = message;
           return (
             <Message
               key={index}
               message={{
                 text: _message,
                 sender: socketId,
-                time: new Date(time),
+                time,
               }}
             />
           );

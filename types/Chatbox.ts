@@ -6,5 +6,5 @@ export type T_Message = {
   socketId: string;
   senderName: string;
   message: string;
-  date: Date;
+  time: number;
 };

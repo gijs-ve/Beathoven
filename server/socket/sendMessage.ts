@@ -10,7 +10,7 @@ export const sendMessage = (io: IO, socket: Socket) => {
         socketId: socket.id,
         senderName: "TODO: senderName",
         message,
-        date: new Date(),
+        time: new Date().getTime(),
       };
       store.dispatch(addMesssage(newMessage));
       io.emit("addMessage", newMessage);

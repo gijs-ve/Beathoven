@@ -1,7 +1,7 @@
 import chalk from "chalk";
 
 const _log = console.log;
-export const log = (message: string, color?: "red" | "blue" | "yellow") => {
+export const log = (message: string, color?: "red" | "blue" | "yellow" | "green") => {
   if (!color) {
     _log(chalk.white(new Date() + " || " + message));
     return;

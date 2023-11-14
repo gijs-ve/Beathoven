@@ -1,10 +1,12 @@
 import ChatBox from "@/components/Chatbox/Chatbox";
 import { Logo } from "@/components/Logo/Logo";
 import { Navbar } from "@/components/Navbar/Navbar";
-import { T_NavItem } from "@/types";
+import {Socket} from "@/components/Socket/Socket";
+import { T_NavItem } from "../../../types";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+      <Socket />
         <Logo />
         <Navbar navItems={navItems} />
         <ChatBox />

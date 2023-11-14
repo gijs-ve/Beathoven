@@ -1,5 +1,6 @@
 export type T_ClientToServerEvents = {
   createRoom: (name: string) => void;
+  sendMessage: (message: string) => void;
 };
 
 export type T_ServerToClientEvents = {

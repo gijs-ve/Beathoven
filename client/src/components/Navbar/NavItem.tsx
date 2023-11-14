@@ -1,5 +1,5 @@
 "use client";
-import { T_NavItem } from "@/types";
+import { T_NavItem } from "../../../../types";
 import { motion } from "framer-motion";
 import Link from "next/link";
 export const NavItem = ({ navItem }: { navItem: T_NavItem }) => {

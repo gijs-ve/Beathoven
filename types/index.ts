@@ -1,3 +1,4 @@
+export * from "./Chatbox";
 export * from "./Hotkeys";
 export * from "./Instruments";
 export * from "./Navbar";

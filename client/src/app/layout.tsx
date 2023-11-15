@@ -1,12 +1,12 @@
 import ChatBox from "@/components/Chatbox/Chatbox";
 import { Logo } from "@/components/Logo/Logo";
 import { Navbar } from "@/components/Navbar/Navbar";
-import {Socket} from "@/components/Socket/Socket";
-import { T_NavItem } from "../../../types";
+import { ReduxProvider } from "@/components/Providers/ReduxProvider";
+import { Socket } from "@/components/Socket/Socket";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { T_NavItem } from "../../../types";
 import "./globals.css";
-
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,15 +38,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <Socket />
-        <Logo />
-        <Navbar navItems={navItems} />
-        <ChatBox />
-        <main className="flex min-h-screen flex-col items-center justify-between p-24 w-full bg-gray-800">
-          <div className="bg-blueish-700 w-[90%] px-[10%] py-[5%] rounded-xl border-2 border-blueish-800">
-            {children}
-          </div>
-        </main>
+        <ReduxProvider>
+          <Socket />
+          <Logo />
+          <Navbar navItems={navItems} />
+          <ChatBox />
+          <main className="flex min-h-screen flex-col items-center justify-between p-24 w-full bg-gray-800">
+            <div className="bg-blueish-700 w-[90%] px-[10%] py-[5%] rounded-xl border-2 border-blueish-800">
+              {children}
+            </div>
+          </main>
+        </ReduxProvider>
       </body>
     </html>
   );

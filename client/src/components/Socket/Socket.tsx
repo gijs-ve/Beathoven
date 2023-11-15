@@ -1,6 +1,7 @@
-'use client';
-import {useSocket} from '@/hooks';
+"use client";
+import { useSocket } from "@/hooks";
+import { SocketReceiver } from "./SocketReceiver";
 export const Socket = () => {
-    useSocket();
-    return null;
-}
+  useSocket();
+  return <SocketReceiver />;
+};

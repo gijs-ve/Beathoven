@@ -1,13 +1,18 @@
 import React from "react";
 
-interface MessageProps {
-  message: { text: string; sender: string; time: Date };
+export interface MessageProps {
+  message: { text: string; sender: string; time: string };
+  ref?: React.Ref<HTMLDivElement>;
 }
 
-const Message: React.FC<MessageProps> = ({ message: { sender, text } }) => {
+const Message: React.FC<MessageProps> = ({
+  message: { sender, text, time },
+  ref,
+}) => {
   return (
-    <div>
-      <p>{`${sender}: ${text}`}</p>
+    <div ref={ref} className="flex flex-col bg-blueish-800 p-4 m-4 rounded-xl">
+      <p className="p-2">{`${time} ${sender}`}</p>
+      <p>{text}</p>
     </div>
   );
 };

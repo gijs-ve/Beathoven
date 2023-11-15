@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "npx nodemon index.ts --color"
+      "start": "npx nodemon index.ts --color",
+      "launch": "cd build && npx nodemon index.js",
+      "compile": "yarn install && NODE_ENV=production && rm -rf build  && npx tsc --build && cd build/server && cp -r . .. && cd .. && rm -rf server && rm -rf types && cd .. && cp -r models build && cp package.json build"
   },
   "keywords": [],
   "author": "",

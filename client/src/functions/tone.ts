@@ -1,5 +1,9 @@
-import { T_Instrument, T_Output } from "../../../types";
 import * as Tone from "tone";
+import { T_Instrument, T_Output } from "../../../types";
+
+export const enableTone = async () => {
+  await Tone.start();
+};
 export const playSound = ({
   sound,
   instrument,
